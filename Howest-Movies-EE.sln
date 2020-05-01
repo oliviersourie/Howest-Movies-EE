@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-WebAPI", "Howest-Movies-EE-WebAPI\Howest-Movies-EE-WebAPI.csproj", "{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-DAL", "Howest-Movies-EE-DAL\Howest-Movies-EE-DAL.csproj", "{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-Web", "Howest-Movies-EE-Web\Howest-Movies-EE-Web.csproj", "{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-GraphQL", "Howest-Movies-EE-GraphQL\Howest-Movies-EE-GraphQL.csproj", "{22B56740-A359-4297-A504-062457CA1884}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B56740-A359-4297-A504-062457CA1884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B56740-A359-4297-A504-062457CA1884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B56740-A359-4297-A504-062457CA1884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B56740-A359-4297-A504-062457CA1884}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8123EFE8-B361-4112-A83A-9D45DA633646}
+	EndGlobalSection
+EndGlobal
