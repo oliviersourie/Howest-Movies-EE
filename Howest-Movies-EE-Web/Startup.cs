@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,8 @@ namespace Howest_Movies_EE_Web
 {
     public class Startup
     {
+        private const string clientName = "MyWebAPI";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -24,6 +27,13 @@ namespace Howest_Movies_EE_Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddHttpClient($"{clientName}", c =>
+            {
+                c.BaseAddress = new Uri(Configuration[$"WebAPIClients:{clientName}:BaseUrl"]);
+                //API versioning: Accept Header
+                c.DefaultRequestHeaders.Add("Accept", $"application/json;version={Configuration[$"WebAPIClients:{clientName}:Version"]}");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +56,7 @@ namespace Howest_Movies_EE_Web
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }
