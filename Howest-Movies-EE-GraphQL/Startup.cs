@@ -6,6 +6,7 @@ using AutoMapper;
 using GraphiQl;
 using GraphQL;
 using GraphQL.Types;
+using Howest_Movies_EE_DAL.Extensions;
 using Howest_Movies_EE_DAL.Models;
 using Howest_Movies_EE_DAL.Repositories;
 using Howest_Movies_EE_GraphQL.GraphQLTypes;
@@ -34,14 +35,17 @@ namespace Howest_Movies_EE_GraphQL
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<MoviesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SchoolDb")));
 
-            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.InitRepositories(Configuration);
+
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddSingleton<StudentType>();
-            services.AddSingleton<CursusType>();
+            services.AddSingleton<MovieType>();
+            services.AddSingleton<PersonType>();
+            services.AddSingleton<GenreType>();
+            services.AddSingleton<MovieDetailType>();
+            services.AddSingleton<ListItemPersonType>();
+
             services.AddScoped<RootQuery>();
             services.AddScoped<IDependencyResolver>(d => new FuncDependencyResolver(d.GetRequiredService));
             services.AddScoped<ISchema, RootSchema>();

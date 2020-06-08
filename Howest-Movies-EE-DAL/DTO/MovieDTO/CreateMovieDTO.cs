@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Howest_Movies_EE_DAL.Models
+namespace Howest_Movies_EE_DAL.DTO.MovieDTO
 {
-    public partial class Movies
+    public class CreateMovieDTO
     {
-        public Movies()
-        {
-            GenreMovie = new HashSet<GenreMovie>();
-            MovieRole = new HashSet<MovieRole>();
-        }
-
-        public long Id { get; set; }
         public string ImdbId { get; set; }
         public string Title { get; set; }
         public string CoverUrl { get; set; }
@@ -21,9 +15,5 @@ namespace Howest_Movies_EE_DAL.Models
         public decimal Rating { get; set; }
         public string Plot { get; set; }
         public int Top250Rank { get; set; }
-        public bool SoftDeleted { get; set; }
-
-        public virtual ICollection<GenreMovie> GenreMovie { get; set; }
-        public virtual ICollection<MovieRole> MovieRole { get; set; }
     }
 }

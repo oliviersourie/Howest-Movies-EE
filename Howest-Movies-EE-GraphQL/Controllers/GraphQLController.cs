@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Howest_Movies_EE_DAL.DTO;
 using GraphQL;
 using GraphQL.Types;
+using Howest_Movies_EE_DAL.DTO.GraphQLDTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Howest_Movies_EE_GraphQL.Controllers
@@ -20,7 +20,7 @@ namespace Howest_Movies_EE_GraphQL.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]GraphQLQueryDTO query)
+        public async Task<IActionResult> Post([FromBody]QraphQLQueryDTO query)
         {
             ExecutionResult result = await executer.ExecuteAsync(r =>
             {

@@ -1,20 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Howest_Movies_EE_DAL.Models;
-using Howest_Movies_EE_DAL.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace Howest_Movies_EE_WebAPI
@@ -33,8 +26,7 @@ namespace Howest_Movies_EE_WebAPI
         {
             services.AddControllers();
             services.AddDbContext<MoviesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SchoolDb")));
-            services.AddScoped<IStudentRepository, StudentRepository>();
+                    options.UseSqlServer(Configuration.GetConnectionString("MovieDb")));
             services.AddAutoMapper(typeof(Startup));
             services.AddApiVersioning(o => {
                 o.ReportApiVersions = true;
