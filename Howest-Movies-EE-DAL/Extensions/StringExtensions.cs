@@ -6,7 +6,7 @@ namespace Howest_Movies_EE_DAL.Extensions
     public static class StringExtensions
     {
 
-        public static string Shorten(this string s, int length)
+        public static string TakeFirst(this string s, int length)
         {
             return $"{(s.Length > length ? s.Substring(0, length).Trim() : s)}{(s.Length >= length ? "..." : "")}";
 

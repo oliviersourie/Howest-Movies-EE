@@ -1,10 +1,9 @@
 using AutoMapper;
-using Howest_Movies_EE_DAL.Models;
+using Howest_Movies_EE_DAL.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,8 +24,7 @@ namespace Howest_Movies_EE_WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<MoviesContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MovieDb")));
+            services.InitRepositories(Configuration);
             services.AddAutoMapper(typeof(Startup));
             services.AddApiVersioning(o => {
                 o.ReportApiVersions = true;
@@ -50,15 +48,15 @@ namespace Howest_Movies_EE_WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "School API v1",
+                    Title = "Movie API v1",
                     Version = "v1",
-                    Description = "API to manage students and courses",
+                    Description = "API to manage Movies, Genres and Persons",
                 });
                 c.SwaggerDoc("v1.1", new OpenApiInfo
                 {
                     Title = "School API v1.5",
                     Version = "v1.5",
-                    Description = "API to manage students and courses",
+                    Description = "API to Movies, Genres and Persons with extra features: search and soft delete",
                 });
             });
         }
@@ -80,8 +78,8 @@ namespace Howest_Movies_EE_WebAPI
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My School API v1");
-                c.SwaggerEndpoint("/swagger/v1.5/swagger.json", "My School API v1.5");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movie API v1");
+                c.SwaggerEndpoint("/swagger/v1.5/swagger.json", "Movie API v1.5");
 
             });
             //The Swagger UI can be found at http://localhost:<port>/swagger.

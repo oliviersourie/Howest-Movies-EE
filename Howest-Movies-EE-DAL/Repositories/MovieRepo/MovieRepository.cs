@@ -53,7 +53,7 @@ namespace Howest_Movies_EE_DAL.Repositories
                     break;
 
             }
-            return sortedList.ProjectTo<ListItemMovieDTO>(movieMapper.ConfigurationProvider); ;
+            return sortedList.ProjectTo<ListItemMovieDTO>(movieMapper.ConfigurationProvider);
         }
         #endregion
 
