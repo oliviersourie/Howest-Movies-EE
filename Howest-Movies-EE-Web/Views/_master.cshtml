@@ -1,0 +1,34 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Howest Movies - @RenderSection("title", required: true)</title>
+    <link href="~/css/reset.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div>
+            <img src="~/media/images/logo.jpg" alt="Howest logo" title="Howest logo" />
+        </div>
+        <ul>
+            <li><a asp-action="Index" asp-controller="Movie">Movies</a></li>
+            <li><a asp-action="Index" asp-controller="Genre">Genres</a></li>
+            <li><a asp-action="Index" asp-controller="Person">People</a></li>
+        </ul>
+    </header>
+    <main>
+
+        @RenderBody()
+    </main>
+    <footer>
+        <div>
+            <img src="~/media/images/logo.jpg" alt="Howest logo" title="Howest logo" />
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

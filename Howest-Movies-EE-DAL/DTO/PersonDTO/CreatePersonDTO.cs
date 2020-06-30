@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Howest_Movies_EE_DAL.DTO.MovieDTO;
+using Howest_Movies_EE_DAL.DTO.Movie;
 
-namespace Howest_Movies_EE_DAL.DTO.PersonDTO
+namespace Howest_Movies_EE_DAL.DTO.Person
 {
     public class CreatePersonDTO
     {

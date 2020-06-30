@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "MovieDetail";
+    Layout = "~/Views/_master.cshtml";
+}
+@model MovieDetailViewModel
+<h1>@Model.Title</h1>
+<section class="info">
+    <div class="float-top-right">
+        <a asp-action="FavoriteMovie" asp-controller="Movie" asp-route-id="@Model.Id" class="btn edit">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
+            </span>
+            <p>Add to watchlist</p>
+        </a>
+    </div>
+    <h2>Plot</h2>
+    <img src="~/media/images/posters/@Model.CoverUrl" />
+    <p class="long-text">@Model.Plot</p>
+</section>
+<section class="info">
+
+    <div class="float-top-right">
+        <a asp-action="Edit" asp-controller="Movie" asp-route-id="@Model.Id" class="btn edit">
+            <span><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" /><path d="M0 0h24v24H0z" fill="none" /></svg></span>
+            <p>Edit movie</p>
+        </a>
+    </div>
+
+
+
+    <h2>Information</h2>
+    <ul>
+        <li><em>Release year:</em> @Model.Year</li>
+        <li><em>Country:</em> @Model.Country</li>
+        <li><em>IMDB rating:</em> @Model.Rating</li>
+    </ul>
+    <h3>Genres</h3>
+    <ul class="genres">
+        @foreach (GenreViewModel genre in Model.GenreMovie)
+        {
+            <li>@genre.Name</li>
+        }
+    </ul>
+    <h3>Actors</h3>
+    <ul class="actors">
+        @foreach (PersonViewModel actor in Model.Actors)
+        {
+            <li><img src="~/media/images/profile.jpg" title="@actor.Name" alt="@actor.Name" /><p>@actor.Name</p></li>
+        }
+    </ul>
+</section>
+
+
+
+
+@section title{
+    @Model.Title
+}
+

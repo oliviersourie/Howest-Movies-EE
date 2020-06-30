@@ -1,9 +1,9 @@
 ﻿using GraphQL.Types;
-using Howest_Movies_EE_DAL.DTO.PersonDTO;
+using Howest_Movies_EE_DAL.DTO.Person;
 
 namespace Howest_Movies_EE_GraphQL.GraphQLTypes
 {
-    public class PersonType : ObjectGraphType<FullPersonDTO>
+    public class PersonType : ObjectGraphType<PersonDTO>
     {
 
         public PersonType()

@@ -9,12 +9,13 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Howest_Movies_EE_DAL.Extensions;
 
 namespace Howest_Movies_EE_Web
 {
     public class Startup
     {
-        private const string clientName = "MyWebAPI";
+        private const string clientName = "MovieAPI";
 
         public Startup(IConfiguration configuration)
         {
@@ -26,13 +27,18 @@ namespace Howest_Movies_EE_Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(option =>
+            {
+                option.Cookie.Name = ".Movies.Session";
+                option.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
             services.AddHttpClient($"{clientName}", c =>
             {
-                c.BaseAddress = new Uri(Configuration[$"WebAPIClients:{clientName}:BaseUrl"]);
-                //API versioning: Accept Header
-                c.DefaultRequestHeaders.Add("Accept", $"application/json;version={Configuration[$"WebAPIClients:{clientName}:Version"]}");
+                c.BaseAddress = new Uri(Configuration.GetApiString(clientName, "BaseUrl"));
+                c.DefaultRequestHeaders.Add("Accept", $"application/json;version={Configuration.GetApiString(clientName, "Version")}");
             });
         }
 
@@ -51,6 +57,8 @@ namespace Howest_Movies_EE_Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseRouting();
 

@@ -20,9 +20,4 @@
     <ProjectReference Include="..\Howest-Movies-EE-DAL\Howest-Movies-EE-DAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Mappings\" />
-  </ItemGroup>
-
 </Project>

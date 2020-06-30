@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GraphQL.Types;
-using Howest_Movies_EE_DAL.DTO;
-using Howest_Movies_EE_DAL.DTO.GenreDTO;
+﻿using GraphQL.Types;
+using Howest_Movies_EE_DAL.DTO.Genre;
 
 namespace Howest_Movies_EE_GraphQL.GraphQLTypes
 {
-    public class GenreType : ObjectGraphType<FullGenreDTO>
+    public class GenreType : ObjectGraphType<GenreDTO>
     {
         public GenreType()
         {

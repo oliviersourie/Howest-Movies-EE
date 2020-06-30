@@ -2,123 +2,86 @@
 using System.Collections.Generic;
 using System.Linq;
 using GraphQL.Types;
-using Howest_Movies_EE_DAL.DTO.MovieDTO;
+using Howest_Movies_EE_DAL.DTO.Movie;
 using Howest_Movies_EE_DAL.Repositories;
 
 namespace Howest_Movies_EE_GraphQL.GraphQLTypes
 {
     public class RootQuery : ObjectGraphType
     {
-        public RootQuery(IMovieRepository movieRepository, 
-                            IGenreRepository genreRepository, 
-                            IPersonRepository personRepository)
+        public RootQuery(IMoviesRepository moviesRepository, 
+                         IGenresRepository genresRepository, 
+                         IPersonsRepository personsRepository)
         {
             #region All movies
-            Field<ListGraphType<MovieType>>(
+            Field<ListGraphType<MovieDetailType>>(
                 "movies",
-                Description = "Get all movies",
+                Description = "Get all ths movies",
                 resolve: context =>
                 {
-                    return movieRepository.All();
+                    return moviesRepository.GetAllMoviesDetailed();
                 }
-
             );
             #endregion
 
-            #region Id filter
-
-            Field<MovieDetailType>(
-                "movieId",
-                Description = "Get a movie by id",
-                arguments: new QueryArguments
-                {
-                    new QueryArgument<IntGraphType>{ Name = "search"}
-                },
-                resolve: context =>
-                {
-                    int id = context.GetArgument<int>("search");
-                    return movieRepository.GetMovie(id);
-                }
-
-            );
-            #endregion
-
-            #region Search by title
-            Field<ListGraphType<MovieType>>(
-                "movieSearch",
-                Description = "Get a movie by name",
-                arguments: new QueryArguments
-                {
-                    new QueryArgument<StringGraphType>{ Name = "search"}
-                },
-                resolve: context =>
-                {
-                    string search = context.GetArgument<string>("search");
-                    return movieRepository.Search(search);
-                }
-
-            );
-            #endregion
-
-            #region Search movie by country
-            Field<ListGraphType<MovieType>>(
+            #region Search movie by country name
+            Field<ListGraphType<MovieDetailType>>(
                 "movieCountry",
-                Description = "Get a movie by country",
+                Description = "Get a movie by country name",
                 arguments: new QueryArguments
                 {
-                    new QueryArgument<StringGraphType>{ Name = "search"}
+                    new QueryArgument<StringGraphType>{ Name = "country"}
                 },
                 resolve: context =>
                 {
-                    string search = context.GetArgument<string>("search");
-                    IEnumerable<ListItemMovieDTO> movies = movieRepository.All();
-                    return movies.Where(m => m.Country.ToLower().Equals(search.ToLower()));
+                    string searchCountry = context.GetArgument<string>("country");
+                    IEnumerable<MovieDetailDTO> movies = moviesRepository.GetAllMoviesDetailed();
+                    return movies.Where(m => m.Country.ToLower().Equals(searchCountry.ToLower()));
                 }
 
             );
             #endregion
 
-            #region Search movie by release
-            Field<ListGraphType<MovieType>>(
+            #region Search movie by <n> many years released
+            Field<ListGraphType<MovieDetailType>>(
                 "movieRelease",
-                Description = "Get movies released :years ago",
+                Description = "Get movies released from n years ago",
                 arguments: new QueryArguments
                 {
-                    new QueryArgument<IntGraphType>{ Name = "years"}
+                    new QueryArgument<IntGraphType>{ Name = "yearsago"}
                 },
                 resolve: context =>
                 {
-                    int years = context.GetArgument<int>("years");
-                    IEnumerable<ListItemMovieDTO> movies = movieRepository.All();
-                    return movies.Where(m => m.Year == DateTime.Now.Year - years);
+                    int yearsAgo = context.GetArgument<int>("yearsago");
+                    IEnumerable<MovieDetailDTO> movies = moviesRepository.GetAllMoviesDetailed();
+                    return movies.Where(m => m.Year == DateTime.Now.Year - yearsAgo);
                 }
             );
             #endregion
 
             #region All genres
-            Field<ListGraphType<GenreType>>(
+            Field<ListGraphType<GenreDetailType>>(
                 "genres",
                 Description = "Get all genres",
                 resolve: context =>
                 {
-                    return genreRepository.All();
+                    return genresRepository.GetAll();
                 }
 
             );
             #endregion
 
-            #region All people
-            Field<ListGraphType<ListItemPersonType>>(
-                "persons",
-                Description = "Get all people",
+            #region All persons
+            Field<ListGraphType<PersonDetailType>>(
+                "people",
+                Description = "Get people",
                 resolve: context =>
                 {
-                    return personRepository.All();
+                    return personsRepository.GetAll();
                 }
 
             );
             #endregion
-
         }
     }
 }

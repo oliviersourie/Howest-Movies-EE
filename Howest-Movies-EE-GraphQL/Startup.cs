@@ -1,24 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using GraphiQl;
 using GraphQL;
 using GraphQL.Types;
 using Howest_Movies_EE_DAL.Extensions;
-using Howest_Movies_EE_DAL.Models;
-using Howest_Movies_EE_DAL.Repositories;
 using Howest_Movies_EE_GraphQL.GraphQLTypes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace Howest_Movies_EE_GraphQL
 {
@@ -41,10 +31,11 @@ namespace Howest_Movies_EE_GraphQL
             services.AddAutoMapper(typeof(Startup));
 
             services.AddSingleton<MovieType>();
-            services.AddSingleton<PersonType>();
-            services.AddSingleton<GenreType>();
             services.AddSingleton<MovieDetailType>();
-            services.AddSingleton<ListItemPersonType>();
+            services.AddSingleton<PersonType>();
+            services.AddSingleton<PersonDetailType>();
+            services.AddSingleton<GenreType>();
+            services.AddSingleton<GenreDetailType>();
 
             services.AddScoped<RootQuery>();
             services.AddScoped<IDependencyResolver>(d => new FuncDependencyResolver(d.GetRequiredService));

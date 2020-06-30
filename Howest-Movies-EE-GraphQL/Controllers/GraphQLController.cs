@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using GraphQL;
 using GraphQL.Types;
-using Howest_Movies_EE_DAL.DTO.GraphQLDTO;
+using Howest_Movies_EE_DAL.DTO.GraphQL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Howest_Movies_EE_GraphQL.Controllers

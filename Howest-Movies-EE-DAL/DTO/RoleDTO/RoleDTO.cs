@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Howest_Movies_EE_DAL.DTO.Movie;
+using Howest_Movies_EE_DAL.DTO.Person;
 
-namespace Howest_Movies_EE_DAL.DTO.RoleDTO
+namespace Howest_Movies_EE_DAL.DTO.Role
 {
     public class RoleDTO
     {

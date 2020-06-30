@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Howest_Movies_EE_DAL.DTO.GraphQLDTO
+﻿namespace Howest_Movies_EE_DAL.DTO.GraphQL
 {
     public class QraphQLQueryDTO
     {

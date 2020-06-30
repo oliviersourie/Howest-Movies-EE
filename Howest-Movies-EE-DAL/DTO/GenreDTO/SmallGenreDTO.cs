@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Howest_Movies_EE_DAL.DTO.GenreDTO
+namespace Howest_Movies_EE_DAL.DTO.Genre
 {
     public class SmallGenreDTO
     {

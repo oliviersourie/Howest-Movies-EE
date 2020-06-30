@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "EditGenre";
+    Layout = "~/Views/_master.cshtml";
+}
+@model UpdateGenreViewModel
+
+<h1>Editing @Model.Name</h1>
+
+<form asp-action="Update" asp-controller="Genre" method="post">
+
+    <input asp-for="@Model.Id" />
+    <label asp-for="@Model.Name"></label>
+    <input asp-for="@Model.Name" />
+    <span asp-validation-for="@Model.Name" class="error"></span>
+    <label asp-for="@Model.ImdbName"></label>
+    <input asp-for="@Model.ImdbName" />
+    <span asp-validation-for="@Model.ImdbName" class="error"></span>
+
+    <div class="movie-items">
+
+        <movie-check asp-model="Movies" asp-checked="@Model.MovieGenres"></movie-check>
+
+    </div>
+    <input type="submit" class="btn" value="Save changes!" />
+
+</form>
+
+
+@section title{
+    Updating @Model.Name
+}

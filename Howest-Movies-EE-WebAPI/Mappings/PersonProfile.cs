@@ -13,7 +13,7 @@ namespace Howest_Movies_EE_WebAPI.Mappings
         {
             CreateMap<Persons, UpdatePersonDTO>().ReverseMap();
             CreateMap<CreatePersonDTO, Persons>();
-            CreateMap<Persons, FullPersonDTO>()
+            CreateMap<Persons, PersonDetailDTO>()
                 .ForMember(dto => dto.Role, 
                            opt => opt.MapFrom(mr => mr.MovieRole.Select(r => r.Role).FirstOrDefault()))
                 .ForMember(dto => dto.MoviePeople, 
@@ -21,7 +21,7 @@ namespace Howest_Movies_EE_WebAPI.Mappings
                                                                             {
                                                                                 Id = p.Movie.Id
                                                                             })));
-            CreateMap<Persons, ListItemPersonDTO>()
+            CreateMap<Persons, PersonDTO>()
                 .ForMember(dto => dto.Biography, 
                            opt => opt.MapFrom(p => p.Biography.TakeFirst(100)));
         }

@@ -40,7 +40,7 @@ namespace Howest_Movies_EE_WebAPI.Mappings
             .ForMember(dto => dto.Actors,
                        opt => opt.MapFrom(mr => mr.MovieRole
                                     .Where(p => p.Role.Equals("actor"))
-                                    .Select(a => new FullPersonDTO
+                                    .Select(a => new PersonDetailDTO
                                     {
                                         Id = a.Person.Id,
                                         ImdbId = a.Person.ImdbId,

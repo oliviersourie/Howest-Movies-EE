@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "CreateMovie";
+    Layout = "~/Views/_master.cshtml";
+}
+@model CreateMovieViewModel
+
+<h1>Create a new movie</h1>
+
+<form asp-action="Create" asp-controller="Movie" method="post">
+
+    <label asp-for="@Model.ImdbId"></label>
+    <input asp-for="@Model.ImdbId" />
+    <span asp-validation-for="@Model.ImdbId" class="error"></span>
+
+    <label asp-for="@Model.Title"></label>
+    <input asp-for="@Model.Title" />
+    <span asp-validation-for="@Model.Title" class="error"></span>
+
+    <label asp-for="@Model.CoverUrl"></label>
+    <input asp-for="@Model.CoverUrl" />
+    <span asp-validation-for="@Model.CoverUrl" class="error"></span>
+
+    <label asp-for="@Model.Year"></label>
+    <input asp-for="@Model.Year" />
+    <span asp-validation-for="@Model.Year" class="error"></span>
+
+    <label asp-for="@Model.OriginalAirDate"></label>
+    <input asp-for="@Model.OriginalAirDate" />
+    <span asp-validation-for="@Model.OriginalAirDate" class="error"></span>
+
+    <label asp-for="@Model.Country"></label>
+    <input asp-for="@Model.Country" />
+    <span asp-validation-for="@Model.Country" class="error"></span>
+
+
+    <input asp-for="@Model.Kind" />
+
+    <label asp-for="@Model.Rating"></label>
+    <input asp-for="@Model.Rating" />
+    <span asp-validation-for="@Model.Rating" class="error"></span>
+
+    <label asp-for="@Model.Plot"></label>
+    <textarea asp-for="@Model.Plot"></textarea>
+    <span asp-validation-for="@Model.Plot" class="error"></span>
+
+    <label asp-for="@Model.Top250Rank"></label>
+    <input asp-for="@Model.Top250Rank" />
+    <span asp-validation-for="@Model.Top250Rank" class="error"></span>
+
+    <input type="submit" class="btn" value="Create!" />
+
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+@section title{
+    Create a new movie
+}
+

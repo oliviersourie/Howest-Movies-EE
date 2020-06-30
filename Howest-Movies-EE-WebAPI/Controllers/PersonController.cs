@@ -25,9 +25,9 @@ namespace Howest_Movies_EE_WebAPI.Controllers
 
         #region Get people
         [HttpGet(Name = "GetPeople")]
-        [ProducesResponseType(typeof(IEnumerable<ListItemPersonDTO>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<PersonDTO>), 200)]
         [ProducesResponseType(typeof(string), 500)]
-        public ActionResult<IEnumerable<ListItemPersonDTO>> GetPeople()
+        public ActionResult<IEnumerable<PersonDTO>> GetPeople()
         {
             try
             {
@@ -44,14 +44,14 @@ namespace Howest_Movies_EE_WebAPI.Controllers
         #region Get person by id
 
         [HttpGet("{id:int}", Name = "GetPersonById")]
-        [ProducesResponseType(typeof(FullPersonDTO), 200)]
+        [ProducesResponseType(typeof(PersonDetailDTO), 200)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
-        public ActionResult<FullPersonDTO> GetPersonById(int id)
+        public ActionResult<PersonDetailDTO> GetPersonById(int id)
         {
             try
             {
-                FullPersonDTO person = personRepository.GetPerson(id);
+                PersonDetailDTO person = personRepository.GetPerson(id);
 
                 if (person != null)
                 {
@@ -74,16 +74,16 @@ namespace Howest_Movies_EE_WebAPI.Controllers
         #region Create a person
 
         [HttpPost(Name = "CreatePerson")]
-        [ProducesResponseType(typeof(FullPersonDTO), 201)]
+        [ProducesResponseType(typeof(PersonDetailDTO), 201)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
-        public ActionResult<FullPersonDTO> CreatePerson([FromBody]CreatePersonDTO newPerson)
+        public ActionResult<PersonDetailDTO> CreatePerson([FromBody]CreatePersonDTO newPerson)
         {
             try
             {
                 if (newPerson != null)
                 {
-                    FullPersonDTO created = personRepository.Create(newPerson);
+                    PersonDetailDTO created = personRepository.Create(newPerson);
                     return Created(Url.Link("", new { id = created.Id, controller = "Person" }), created);
                 }
                 else
@@ -130,11 +130,11 @@ namespace Howest_Movies_EE_WebAPI.Controllers
 
         #region Update a person
         [HttpPut("{id:int}")]
-        [ProducesResponseType(typeof(FullPersonDTO), 200)]
+        [ProducesResponseType(typeof(PersonDetailDTO), 200)]
         [ProducesResponseType(typeof(string), 400)]
         [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
-        public ActionResult<FullPersonDTO> UpdatePerson(int id, [FromBody] FullPersonDTO updatedPerson)
+        public ActionResult<PersonDetailDTO> UpdatePerson(int id, [FromBody] PersonDetailDTO updatedPerson)
         {
             try
             {

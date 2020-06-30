@@ -11,10 +11,10 @@ namespace Howest_Movies_EE_DAL.Extensions
         public static void InitRepositories(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<MoviesContext>(options =>
-                            options.UseSqlServer(config.GetMovieDataBaseString()));
-            services.AddScoped<IMovieRepository, MovieRepository>();
-            services.AddScoped<IGenreRepository, GenreRepository>();
-            services.AddScoped<IPersonRepository, PersonRepository>();
+                            options.UseSqlServer(config.GetDatabaseString("MovieDb")));
+            services.AddScoped<IMoviesRepository, MoviesRepository>();
+            services.AddScoped<IGenresRepository, GenresRepository>();
+            services.AddScoped<IPersonsRepository, PersonsRepository>();
         }
     }
 }

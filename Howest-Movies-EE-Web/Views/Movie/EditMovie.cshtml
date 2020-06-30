@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "EditMovie";
+    Layout = "~/Views/_master.cshtml";
+}
+@model UpdateMovieViewModel
+
+<h1>Editing: @Model.Title</h1>
+<form asp-action="Update" asp-controller="Movie" method="post">
+
+    <div class="hidden">
+        <input asp-for="@Model.Id" />
+        <input asp-for="@Model.ImdbId" />
+    </div>
+
+    <label asp-for="@Model.Title"></label>
+    <input asp-for="@Model.Title" />
+    <span class="error" asp-validation-for="@Model.Title"></span>
+
+    <label asp-for="@Model.CoverUrl"></label>
+    <input asp-for="@Model.CoverUrl" />
+    <span class="error" asp-validation-for="@Model.CoverUrl"></span>
+
+    <label asp-for="@Model.Year"></label>
+    <input asp-for="@Model.Year" />
+    <span class="error" asp-validation-for="@Model.Year"></span>
+
+    <label asp-for="@Model.OriginalAirDate"></label>
+    <input asp-for="@Model.OriginalAirDate" />
+    <span class="error" asp-validation-for="@Model.OriginalAirDate"></span>
+
+    <label asp-for="@Model.Kind"></label>
+    <input asp-for="@Model.Kind" />
+    <span class="error" asp-validation-for="@Model.Kind"></span>
+
+    <label asp-for="@Model.Rating"></label>
+    <input asp-for="@Model.Rating" />
+    <span class="error" asp-validation-for="@Model.Rating"></span>
+
+    <label asp-for="@Model.Plot"></label>
+    <textarea asp-for="@Model.Plot"></textarea>
+    <span class="error" asp-validation-for="@Model.Plot"></span>
+
+    <label asp-for="@Model.Top250Rank"></label>
+    <input asp-for="@Model.Top250Rank" />
+    <span class="error" asp-validation-for="@Model.Top250Rank"></span>
+
+    <input type="submit" class="btn" value="Save changes" />
+
+
+</form>
+
+
+@section title{
+    Edit @Model.Title
+}
+
+

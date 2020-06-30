@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Howest_Movies_EE_DAL.DTO.Movie;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Howest_Movies_EE_DAL.DTO.PersonDTO
+namespace Howest_Movies_EE_DAL.DTO.Person
 {
-    public class UpdatePersonDTO
+    public class PersonDTO
     {
-
         public long Id { get; set; }
         public string ImdbId { get; set; }
         public string Name { get; set; }
+        public string Role { get; set; }
         public string Biography { get; set; }
+        public IEnumerable<MovieDTO> Movies { get; set; }
     }
 }

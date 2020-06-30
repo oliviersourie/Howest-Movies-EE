@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace Howest_Movies_EE_DAL.Extensions
 {
     public static class ConfigurationExtensions
     {
-        public static string GetMovieDataBaseString(this IConfiguration config)
-        {
-            return config.GetDatabaseString("MovieDb");
-        }
+        //public static string GetMovieDataBaseString(this IConfiguration config)
+        //{
+        //    return config.GetDatabaseString("MovieDb");
+        //}
 
         public static string GetDatabaseString(this IConfiguration config, string dbString)
         {
@@ -19,7 +16,7 @@ namespace Howest_Movies_EE_DAL.Extensions
 
         public static string GetApiString(this IConfiguration config, string api, string field)
         {
-            return config[$"API:{api}:{field}"];
+            return config[$"WebAPIClients:{api}:{field}"];
         }
     }
 }

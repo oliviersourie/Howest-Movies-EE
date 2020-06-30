@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-WebAPI", "Howest-Movies-EE-WebAPI\Howest-Movies-EE-WebAPI.csproj", "{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest-Movies-EE-WebAPI", "Howest-Movies-EE-WebAPI\Howest-Movies-EE-WebAPI.csproj", "{F8FC20AE-A23B-4149-98BA-22413B5E5DD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-DAL", "Howest-Movies-EE-DAL\Howest-Movies-EE-DAL.csproj", "{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest-Movies-EE-DAL", "Howest-Movies-EE-DAL\Howest-Movies-EE-DAL.csproj", "{DDE92193-5A03-41C8-9D59-B3E925CAD0B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-Web", "Howest-Movies-EE-Web\Howest-Movies-EE-Web.csproj", "{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest-Movies-EE-Web", "Howest-Movies-EE-Web\Howest-Movies-EE-Web.csproj", "{CEDB2262-9A67-42EF-80EB-CC4461BBEA52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Howest-Movies-EE-GraphQL", "Howest-Movies-EE-GraphQL\Howest-Movies-EE-GraphQL.csproj", "{22B56740-A359-4297-A504-062457CA1884}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Howest-Movies-EE-GraphQL", "Howest-Movies-EE-GraphQL\Howest-Movies-EE-GraphQL.csproj", "{22B56740-A359-4297-A504-062457CA1884}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

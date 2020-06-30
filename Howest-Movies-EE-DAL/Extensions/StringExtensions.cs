@@ -14,8 +14,8 @@ namespace Howest_Movies_EE_DAL.Extensions
 
         public static string RemoveChars(this string s, string chars)
         {
-            Char[] characterList = chars.ToCharArray();
-            return s.Trim(characterList);
+            char[] characters = chars.ToCharArray();
+            return s.Trim(characters);
 
         }
 
@@ -29,9 +29,9 @@ namespace Howest_Movies_EE_DAL.Extensions
         public static string GetCountryFromOriginalAirDate(this string s)
         {
             return s.Split(' ')
-            .ToList()
-            .Last()
-            .RemoveChars("()");
+                    .ToList()
+                    .Last()
+                    .RemoveChars("()");
         }
 
 
